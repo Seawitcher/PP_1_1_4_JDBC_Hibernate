@@ -42,7 +42,7 @@ public class UserServiceTest {
             userService.saveUser(testName, testLastName, testAge);
 
             User user = userService.getAllUsers().get(0);
-
+            System.out.println(user);
             if (!testName.equals(user.getName())
                     || !testLastName.equals(user.getLastName())
                     || testAge != user.getAge()
@@ -72,11 +72,12 @@ public class UserServiceTest {
         try {
             userService.dropUsersTable();
             userService.createUsersTable();
-            userService.saveUser(testName, testLastName, testAge);
+           // userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
-
-            if (userList.size() != 1) {
+            System.out.println(userList);
+            if (userList.size() != 2) {
                 Assert.fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
+
             }
         } catch (Exception e) {
             Assert.fail("При попытке достать всех пользователей из базы данных произошло исключение\n" + e);
