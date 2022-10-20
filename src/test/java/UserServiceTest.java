@@ -72,10 +72,9 @@ public class UserServiceTest {
         try {
             userService.dropUsersTable();
             userService.createUsersTable();
-           // userService.saveUser(testName, testLastName, testAge);
+            userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
-            System.out.println(userList);
-            if (userList.size() != 2) {
+            if (userList.size() != 1) {
                 Assert.fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
 
             }
